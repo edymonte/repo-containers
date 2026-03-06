@@ -5,10 +5,10 @@ jobs:
     build-test:
         runs-on: ubuntu-latest
         steps:
-            - name: Executor do Runner
-              run: cat/etc/os-release
+            - name: Execução do Runner
+              run: cat /etc/os-release
             - name: Execução no container
               uses: docker://alpine:latest
               with:
                 entrypoint: cat
-                args: cat/etc/os-release
+                args: /etc/os-release
