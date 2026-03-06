@@ -1,18 +1,19 @@
 name: Container para Executar Jobs
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
+on: 
+    workflow_dispatch:  
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run a one-line script
-        run: echo Hello, world!
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    build-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: Verificar a versão do Python
+              run: python3 --version
+            - name: Instalação curl Alpine
+              run: apk add curl
+            - name: Executando o curl 
+              run: curl https://www.google.com
+
+# Documentação do GitHub Actions
+
+# https://docs.github.com/en/actions/using-jobs/running-jobs-in-a-container
